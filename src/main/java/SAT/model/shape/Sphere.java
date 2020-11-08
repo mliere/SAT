@@ -1,6 +1,6 @@
 package SAT.model.shape;
 
-public class Sphere implements IShape {
+public class Sphere extends Shape {
 
     private double radius;
 

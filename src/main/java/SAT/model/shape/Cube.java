@@ -1,6 +1,6 @@
 package SAT.model.shape;
 
-public class Cube implements IShape {
+public class Cube extends Shape {
 
     private double length;
     private double width;

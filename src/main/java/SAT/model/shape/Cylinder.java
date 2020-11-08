@@ -1,6 +1,6 @@
 package SAT.model.shape;
 
-public class Cylinder implements IShape {
+public class Cylinder extends Shape {
 
     private double radius;
     private double height;
