@@ -1,5 +1,6 @@
 package SAT;
 
+import SAT.database.MySqlConnection;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -7,32 +8,15 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-import java.sql.*;
- 
 public class App extends Application {
 
-    //create connection for a server installed in localhost, with a user "root" with no password
-    public String connect() throws SQLException {
-        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/", "user", "password")) {
-            // create a Statement
-            try (Statement stmt = conn.createStatement()) {
-                //execute query
-                try (ResultSet rs = stmt.executeQuery("SELECT * from SAT.test")) {
-                    //position result to first
-                    rs.next();
-                    return (rs.getString(1)); //result is "Hello World!"
-                }
-            }
-        }
-    }
- 
     @Override
     public void start(Stage primaryStage) throws Exception{
- 
-        // Buat Object Button
-        Button btn1 = new Button(connect());
- 
-        // Atur posisi Button berdasarkan baris dan kolom
+
+        MySqlConnection connection = new MySqlConnection();
+
+        Button btn1 = new Button(connection.getData());
+
         GridPane.setRowIndex(btn1, 0);
         GridPane.setColumnIndex(btn1, 0);
  
