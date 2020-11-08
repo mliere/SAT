@@ -2,20 +2,32 @@ package SAT;
 
 import SAT.database.MySqlConnection;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class App extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(final Stage primaryStage) throws Exception{
 
         MySqlConnection connection = new MySqlConnection();
 
         Button btn1 = new Button(connection.getData());
+        //Creating the mouse event handler
+        EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent e) {
+                GridPane grid = new GridPane();
+                primaryStage.getScene().setRoot(grid);
+            }
+        };
+        //Registering the event filter
+        btn1.addEventFilter(MouseEvent.MOUSE_CLICKED, eventHandler);
 
         GridPane.setRowIndex(btn1, 0);
         GridPane.setColumnIndex(btn1, 0);
@@ -51,6 +63,7 @@ public class App extends Application {
         primaryStage.setTitle("Shape Analysis Tool");
         primaryStage.setScene(scene);
         primaryStage.show();
+
     }
  
  

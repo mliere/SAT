@@ -3,6 +3,7 @@
 
 # maven generated classes and documents
 /target
+/data-mysql
 
 # intellij idea files
 .idea

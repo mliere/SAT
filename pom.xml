@@ -66,10 +66,6 @@
         <version>2.22.1</version>
       </plugin>
       <plugin>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>3.0.2</version>
-      </plugin>
-      <plugin>
         <artifactId>maven-install-plugin</artifactId>
         <version>2.5.2</version>
       </plugin>
@@ -86,6 +82,38 @@
         <artifactId>maven-project-info-reports-plugin</artifactId>
         <version>3.0.0</version>
       </plugin>
+      <!-- note packaging using mvn package shade:shade doesn't work -->
+      <plugin>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.0.2</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <mainClass>SAT.App</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+      <plugin> 
+        <groupId>org.apache.maven.plugins</groupId>    
+        <artifactId>maven-shade-plugin</artifactId>             
+        <executions> 
+          <execution> 
+            <phase>package</phase> 
+            <goals> 
+              <goal>shade</goal> 
+            </goals> 
+            <configuration> 
+              <transformers> 
+                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer"> 
+                  <mainClass>SAT.App</mainClass> 
+                </transformer> 
+              </transformers> 
+              <createDependencyReducedPom>false</createDependencyReducedPom>     
+            </configuration> 
+          </execution> 
+        </executions> 
+      </plugin> 
     </plugins>
   </pluginManagement>
 </build>
