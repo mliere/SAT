@@ -2,13 +2,21 @@ package SAT.repository;
 
 import SAT.model.shape.*;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
 public class ShapeRepository implements IShapeRepository {
 
-  private Shape[] shapes;
+  private ArrayList<Shape> shapes;
 
   @Override
-  public Shape getShape() {
+  public Shape getShape(UUID id) {
     return new Cube(5,5,5);
+  }
+
+  public void addShape(Shape shape) {
+    shapes.add(shape);
   }
 
   @Override
@@ -18,7 +26,7 @@ public class ShapeRepository implements IShapeRepository {
   }
 
   @Override
-  public Shape[] getShapes() {
+  public List<Shape> getShapes() {
     return shapes;
   }
 }

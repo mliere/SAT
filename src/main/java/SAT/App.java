@@ -1,6 +1,8 @@
 package SAT;
 
-import SAT.database.MySqlConnection;
+import SAT.data.MySqlConnection;
+import SAT.data.Xml;
+import SAT.model.shape.Cube;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -17,7 +19,8 @@ public class App extends Application {
 
         MySqlConnection connection = new MySqlConnection();
 
-        Button btn1 = new Button(connection.getData());
+        //Button btn1 = new Button(connection.getData());
+        Button btn1 = new Button("1");
         //Creating the mouse event handler
         EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
             @Override
@@ -63,7 +66,6 @@ public class App extends Application {
         primaryStage.setTitle("Shape Analysis Tool");
         primaryStage.setScene(scene);
         primaryStage.show();
-
     }
  
  

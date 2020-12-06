@@ -12,6 +12,16 @@ public class Cube extends Shape {
         this.height = height;
     }
 
+    // override toString, used for serializing class.
+    @Override
+    public String toString() {
+      StringBuilder sb=new StringBuilder(); 
+      sb.append("length:" + this.length + "\n");
+      sb.append("width:" + this.width + "\n");
+      sb.append("height:" + this.height);
+      return sb.toString();
+    }
+
     public double getLength() {
         return length;
     }
