@@ -1,4 +1,4 @@
-package SAT.database;
+package SAT.data;
 
 import java.sql.*;
 import java.util.ArrayList;
