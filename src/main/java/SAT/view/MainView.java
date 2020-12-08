@@ -12,47 +12,60 @@ import javafx.stage.Stage;
 
 public class MainView extends App {
 
+    private Stage stage;
     private GridPane gridPane;
 
     public MainView(Stage primaryStage) {
-        gridPane = new GridPane();
+        stage = primaryStage;
+        gridPane = createGridPane();
 
-        createGridPane();
-        addCalculateButton();
+        gridPane.getChildren().add(getCalculateButton());
+        gridPane.getChildren().add(getLoadButton());
 
-        Scene mainScene = new Scene(gridPane, 900, 500);
+        Scene mainScene = new Scene(gridPane, 500, 300);
 
-        primaryStage.setTitle("Shape Analysis Tool");
-        primaryStage.setScene(mainScene);
-        System.out.println("HALLOOO");
-        primaryStage.show();
+        stage.setTitle("Shape Analysis Tool");
+        stage.setScene(mainScene);
+        stage.show();
     }
 
-    private void createGridPane()
-    {
-        gridPane.setAlignment(Pos.CENTER);
-        gridPane.setHgap(10);
-        gridPane.setVgap(10);
-    }
-
-    private void addCalculateButton() {
+    private Button getCalculateButton() {
         Button calculateButton = new Button("calculate");
 
-//        //Creating the mouse event handler
-//        EventHandler<MouseEvent> onCalculateClick = new EventHandler<MouseEvent>() {
-//            @Override
-//            public void handle(MouseEvent e) {
-//                GridPane grid = new GridPane();
-//                mainStage.getScene().setRoot(grid);
-//            }
-//        };
-//
-//        //Registering the event filter
-//        calculateButton.addEventFilter(MouseEvent.MOUSE_CLICKED, onCalculateClick);
+        //Creating the mouse event handler
+        EventHandler<MouseEvent> onCalculateClick = new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent e) {
+                CalculateView calculateView = new CalculateView(stage);
+            }
+        };
+
+        //Registering the event filter
+        calculateButton.addEventFilter(MouseEvent.MOUSE_CLICKED, onCalculateClick);
 
         GridPane.setRowIndex(calculateButton, 0);
         GridPane.setColumnIndex(calculateButton, 0);
 
-        gridPane.getChildren().addAll(calculateButton);
+        return calculateButton;
+    }
+
+    private Button getLoadButton() {
+        Button loadButton = new Button("load");
+
+        //Creating the mouse event handler
+        EventHandler<MouseEvent> onCalculateClick = new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent e) {
+                LoadView loadView = new LoadView(stage);
+            }
+        };
+
+        //Registering the event filter
+        loadButton.addEventFilter(MouseEvent.MOUSE_CLICKED, onCalculateClick);
+
+        GridPane.setRowIndex(loadButton, 0);
+        GridPane.setColumnIndex(loadButton, 1);
+
+        return loadButton;
     }
 }
