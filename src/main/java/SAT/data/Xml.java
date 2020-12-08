@@ -11,7 +11,7 @@ import javax.xml.stream.XMLStreamWriter;
 
 public class Xml{
 
-  public String toXml(Object obj) {
+  public static String toXml(Object obj) {
 
     String xmlString = new String();
 

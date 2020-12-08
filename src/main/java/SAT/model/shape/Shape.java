@@ -7,8 +7,8 @@ public abstract class Shape {
   //public double getLength();
   //public double getWidth();
   //public double getHeight();
-  public String id;
+  //public String id;
 
-  public Shape(){ UUID id = UUID.randomUUID(); }
+  //public Shape(){ UUID id = UUID.randomUUID(); }
   public abstract double getVolume();
 }
