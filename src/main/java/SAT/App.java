@@ -68,6 +68,11 @@ public class App extends Application {
     primaryStage.setScene(scene);
     primaryStage.show();
 
+    Cube c = new Cube(10,10,10);
+
+    //Disk.toDisk(c,"cubee.xml");
+    Disk.fromDisk("cubee.xml");
+
   }
 
   public static void main(String[] args) {

@@ -9,6 +9,12 @@ import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
 
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
+
 public class Xml{
 
   public static String toXml(Object obj) {
@@ -35,7 +41,7 @@ public class Xml{
 
       // use BufferedReader to loop over lines in object serialized to text
       BufferedReader objReader = new BufferedReader(new StringReader(obj.toString()));
-      
+
       // loop over contents
       String line=null;
       while( (line=objReader.readLine()) != null )
@@ -60,5 +66,11 @@ public class Xml{
       e.printStackTrace();
     }
     return xmlString;
+  }
+
+  public static Object fromXml(String xml) {
+
+    System.out.println(xml);
+      return new Object();  
   }
 }
