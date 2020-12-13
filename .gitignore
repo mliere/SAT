@@ -12,6 +12,9 @@
 # Log file
 *.log
 
+# temporary git editing files
+*.swp
+
 # BlueJ files
 *.ctxt
 
