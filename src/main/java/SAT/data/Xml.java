@@ -112,7 +112,7 @@ public class Xml{
           if(qName=="Document") {
             String[] attributeArray = new String[attributes.size()];
             attributeArray = attributes.toArray(attributeArray);
-            Object object = ShapeFactory.getShape(shapeType,attributeArray);
+            Object object = ShapeFactory.getShape(shapeType, identifier, attributeArray);
 
           }
 

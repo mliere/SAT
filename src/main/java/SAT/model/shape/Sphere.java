@@ -12,6 +12,11 @@ public class Sphere extends Shape {
     this.radius = radius;
   }
 
+  public Sphere(String id, double radius) {
+    this.id = UUID.fromString(id);
+    this.radius = radius;
+  }
+
   // override toString, used for serializing class.
   @Override
   public String toString() {

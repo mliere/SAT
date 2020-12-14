@@ -14,6 +14,12 @@ public class Cylinder extends Shape {
     this.height = height;
   }
 
+  public Cylinder(String id, double radius, double height) {
+    this.id = UUID.fromString(id);
+    this.radius = radius;
+    this.height = height;
+  }
+
   // override toString, used for serializing class.
   @Override
   public String toString() {
